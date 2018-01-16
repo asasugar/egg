@@ -1,5 +1,5 @@
 'use strict';
-
+var path=require('path');
 module.exports = appInfo => {
   const config = exports = {};
 
@@ -12,6 +12,9 @@ module.exports = appInfo => {
     csrf: {
       enable: false,
     },
+  };
+  config.static = {
+    dir: path.resolve(__dirname, '../app/public')
   };
   return config;
 };

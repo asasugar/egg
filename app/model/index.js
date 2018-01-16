@@ -15,6 +15,9 @@ var UserSchema = new mongoose.Schema({
     password: {
         type: String
     },
+    token:{
+        type: String
+    }
 });
 var UserModel = db.model("user", UserSchema);
 /* 用户表-----E */
@@ -39,16 +42,34 @@ var ProductSchema = new mongoose.Schema({
 });
 var ProductModel = db.model("product", ProductSchema);
 /* 产品表-----E */
-// const ProductEntity = new ProductModel({
-//     pType:['工科医类','家电类','灯具类','无线射频类','汽车电子类','电源类','多媒体类'],
-//     pV:['直流','单相','三相'],
-//     pI:['直流','单相','三相'],
-//     pF:['直流','单相','三相'],
-//     pVW:['直流','单相','三相']
+
+/* 用户信息表-----S */
+var UserMessageSchema = new mongoose.Schema({
+    token: {
+        type: String
+    },
+    userName: {
+        type: String
+    },
+    phone:{
+        type:String
+    },
+    company: {
+        type: String
+    },
+});
+var UserMessageModel = db.model("userMessage", UserMessageSchema);
+/* 用户信息表-----E */
+// const UserEntity = new UserMessageModel({
+//     token:'6cd48c326299f622fb7e459b53eebe42',
+//     userName:'薛雄杰',
+//     company:'狂拽酷炫屌炸天技术有限公司',
+//     phone:'18059156737'
 // });
-// ProductEntity.save()
+// UserEntity.save()
 
 module.exports = {
     UserModel,
-    ProductModel
+    ProductModel,
+    UserMessageModel
 };

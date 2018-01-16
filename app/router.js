@@ -9,7 +9,13 @@ module.exports = app => {
     controller
   } = app;
   router.get('/', controller.home.index);
-  router.get('/api/addUser', controller.home.addUser);
-  router.get('/api/product', controller.home.product)
+  // user用户表
   router.post('/api/login', controller.home.login);
+  router.post('/api/editPassword', controller.home.editPassword);
+  router.post('/api/reg', controller.home.reg);
+  router.get('/api/addUser', controller.home.addUser);
+  // product产品参数表
+  router.get('/api/product', controller.home.product);
+  // userMessage用户信息表
+  router.post('/api/userMessage', controller.home.userMessage)
 };
