@@ -1,5 +1,6 @@
 'use strict';
-var path=require('path');
+var path = require('path');
+
 module.exports = appInfo => {
   const config = exports = {};
 
@@ -12,6 +13,11 @@ module.exports = appInfo => {
     csrf: {
       enable: false,
     },
+    domainWhiteList: ['http://192.168.2.216:7001']
+  };
+  config.cors = {
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
+    origin: '*',
   };
   config.static = {
     dir: path.resolve(__dirname, '../app/public')
